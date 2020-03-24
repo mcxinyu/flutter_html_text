@@ -61,7 +61,7 @@ class CachedImage extends State<NetworkImageClipper> {
         alignment: AlignmentDirectional.center,
         children: <Widget>[
           Image(
-            image: AssetImage("assets/images/feed_cell_photo_default_big.png",
+            image: AssetImage("assets/images/image_error.png",
                 package: getPackageName()),
           ),
           Offstage(
@@ -73,7 +73,7 @@ class CachedImage extends State<NetworkImageClipper> {
         ],
       ),
       errorWidget: (context, url, error) => Image(
-        image: AssetImage("assets/images/feed_cell_photo_default_big.png",
+        image: AssetImage("assets/images/image_error.png",
             package: getPackageName()),
       ),
       imageUrl: widget.imageUrl,
