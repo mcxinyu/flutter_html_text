@@ -20,12 +20,7 @@ class ImageClipper extends CustomPainter {
     Paint paint = Paint();
     canvas.drawImageRect(
         image,
-        Rect.fromLTRB(
-            left,
-            top,
-            image.width * 1.0,
-            MediaQuery.of(context).size.height *
-                (image.width * 1.0 / MediaQuery.of(context).size.width)),
+        Rect.fromLTRB(left, top, image.width * 1.0, image.height * 1.0),
         Rect.fromLTWH(0, 0, size.width, size.height),
         paint);
   }

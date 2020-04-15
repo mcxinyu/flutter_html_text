@@ -112,8 +112,7 @@ class CachedImage extends State<NetworkImageClipper> {
       if (2 * window.physicalSize.height < uiImage.height) {
         clipper = ImageClipper(uiImage, context);
         setState(() {
-          ImageClipperInstance()
-              .addUrl(widget.imageUrl, _createCustomPaint(context));
+          ImageClipperInstance().addUrl(widget.imageUrl, null);
         });
       } else {
         clipper = null;
@@ -122,22 +121,9 @@ class CachedImage extends State<NetworkImageClipper> {
   }
 
   Widget _createCustomPaint(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        CustomPaint(
-          painter: clipper,
-          size: Size(MediaQuery.of(context).size.width,
-              MediaQuery.of(context).size.height),
-        ),
-        Positioned(
-          right: 1,
-          bottom: 1,
-          child: Image.asset(
-            "assets/images/long_picture_icon.png",
-            package: getPackageName(),
-          ),
-        ),
-      ],
+    return CustomPaint(
+      painter: clipper,
+      size: Size(MediaQuery.of(context).size.width, clipper.image.height * 1.0),
     );
   }
 }
